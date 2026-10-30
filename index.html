@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Projetos de engenharia e casas inteligentes pensados para oferecer conforto, eficiência e tecnologia."
+      content="Projetos de arquitetura e casas inteligentes pensados para oferecer conforto, eficiência e tecnologia."
     >
     <meta name="theme-color" content="#191714">
-    <title>Nexo Engenharia — Casas inteligentes</title>
+    <title>Gabriela Augusta Arquitetura — Casas inteligentes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,9 +22,9 @@
     <main>
       <header class="site-header">
         <div class="site-header__inner">
-          <a class="brand" href="#inicio" aria-label="Nexo Engenharia — início">
-            <span class="brand__mark" aria-hidden="true">N</span>
-            <span class="brand__name">NEXO<small>ENGENHARIA</small></span>
+          <a class="brand" href="#inicio" aria-label="Gabriela Augusta Arquitetura — início">
+            <span class="brand__mark" aria-hidden="true">G</span>
+            <span class="brand__name">GABRIELA<small>AUGUSTA ARQUITETURA</small></span>
           </a>
 
           <button
@@ -39,7 +39,7 @@
           </button>
 
           <nav class="navigation" id="primary-navigation" aria-label="Navegação principal">
-            <a href="#engenheira">A engenheira</a>
+            <a href="#engenheira">A arquiteta</a>
             <a href="#solucoes">Soluções</a>
             <a href="#casa-interativa">Casa inteligente</a>
             <a href="#projetos">Projetos</a>
@@ -49,11 +49,27 @@
       </header>
 
       <section class="hero" id="inicio" aria-labelledby="hero-title" data-header-theme="light">
-        <div class="hero__image" aria-hidden="true"></div>
+        <div class="hero__image" aria-hidden="true">
+          <video
+            class="hero__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/hero-poster.jpg"
+            data-src-landscape="assets/hero.mp4"
+            data-src-portrait="assets/hero-vertical.mp4"
+            data-poster-portrait="assets/hero-poster-vertical.jpg"
+            disablepictureinpicture
+            tabindex="-1"
+          >
+          </video>
+        </div>
         <div class="hero__shade" aria-hidden="true"></div>
 
         <div class="hero__content">
-          <p class="eyebrow">Engenharia para viver melhor</p>
+          <p class="eyebrow">Arquitetura para viver melhor</p>
           <h1 id="hero-title" aria-label="Casas inteligentes feitas para você.">
             <span class="hero__title-line" data-text="Casas inteligentes" aria-hidden="true"></span>
             <strong class="hero__title-line" data-text="feitas para você." aria-hidden="true"></strong>
@@ -71,7 +87,7 @@
         <div class="hero__bottom">
           <div class="hero__caption">
             <span class="hero__caption-line"></span>
-            <span>Arquitetura, engenharia e tecnologia em harmonia.</span>
+            <span>Arquitetura, design e tecnologia em harmonia.</span>
           </div>
           <a class="scroll-link" href="#sobre">
             <span>Explore</span>
@@ -169,31 +185,31 @@
           <p class="eyebrow eyebrow--dark">Nossos projetos</p>
           <h2 id="projects-title">Do primeiro traço à<br>última <em>mudança plantada.</em></h2>
           <p>
-            Engenharia e tecnologia em harmonia para transformar cada ideia
+            Arquitetura e tecnologia em harmonia para transformar cada ideia
             em um espaço que combina com você.
           </p>
         </div>
         <div class="projects-gallery__track" aria-label="Galeria de projetos">
-          <a class="project-card" href="#contato" aria-label="Saiba mais sobre projetos de interiores">
+          <a class="project-card" href="#contato" aria-label="Saiba mais sobre projetos de cozinhas e interiores">
             <img
-              src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=85"
-              alt="Sala contemporânea com materiais naturais e iluminação aconchegante"
+              src="assets/cozinha-integrada.png"
+              alt="Cozinha integrada com ilha em mármore, marcenaria em madeira e mesa de jantar"
               loading="lazy"
             >
             <span class="project-card__caption">
-              <span class="project-card__category">Interiores</span>
+              <span class="project-card__category">Cozinhas</span>
               <span class="project-card__hint">Passe para explorar</span>
             </span>
             <span class="project-card__details">
-              <strong>Interiores</strong>
-              <span>Ambientes acolhedores, desenhados para a vida real.</span>
+              <strong>Cozinhas</strong>
+              <span>Ambientes integrados, acolhedores e desenhados para a vida real.</span>
               <span class="project-card__link">Saiba mais <span aria-hidden="true">↗</span></span>
             </span>
           </a>
           <a class="project-card" href="#contato" aria-label="Saiba mais sobre projetos residenciais">
             <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85"
-              alt="Casa contemporânea integrada ao jardim"
+              src="assets/casa-garagem.png"
+              alt="Fachada residencial contemporânea com pedra, madeira e garagem para dois carros"
               loading="lazy"
             >
             <span class="project-card__caption">
@@ -206,51 +222,51 @@
               <span class="project-card__link">Saiba mais <span aria-hidden="true">↗</span></span>
             </span>
           </a>
-          <a class="project-card" href="#contato" aria-label="Saiba mais sobre projetos corporativos">
+          <a class="project-card" href="#contato" aria-label="Saiba mais sobre projetos comerciais">
             <img
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85"
-              alt="Espaço de trabalho moderno com luz natural"
+              src="assets/clinica-fachada.png"
+              alt="Fachada de consultório odontológico em dois pavimentos ao pôr do sol"
               loading="lazy"
             >
             <span class="project-card__caption">
-              <span class="project-card__category">Corporativo</span>
+              <span class="project-card__category">Comercial</span>
               <span class="project-card__hint">Passe para explorar</span>
             </span>
             <span class="project-card__details">
-              <strong>Corporativo</strong>
-              <span>Espaços de trabalho práticos, conectados e inspiradores.</span>
+              <strong>Comercial</strong>
+              <span>Consultórios e espaços que unem identidade, conforto e funcionalidade.</span>
               <span class="project-card__link">Saiba mais <span aria-hidden="true">↗</span></span>
             </span>
           </a>
-          <a class="project-card" href="#contato" aria-label="Saiba mais sobre projetos de paisagismo">
+          <a class="project-card" href="#contato" aria-label="Saiba mais sobre projetos de banheiros">
             <img
-              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=85"
-              alt="Jardim interno integrado à arquitetura da casa"
+              src="assets/banheiro-spa.png"
+              alt="Banheiro spa com banheira, box em vidro e detalhes dourados"
               loading="lazy"
             >
             <span class="project-card__caption">
-              <span class="project-card__category">Paisagismo</span>
+              <span class="project-card__category">Banheiros</span>
               <span class="project-card__hint">Passe para explorar</span>
             </span>
             <span class="project-card__details">
-              <strong>Paisagismo</strong>
-              <span>Natureza e arquitetura em equilíbrio com o seu espaço.</span>
+              <strong>Banheiros</strong>
+              <span>Refúgios de bem-estar com materiais nobres e iluminação acolhedora.</span>
               <span class="project-card__link">Saiba mais <span aria-hidden="true">↗</span></span>
             </span>
           </a>
-          <a class="project-card" href="#contato" aria-label="Saiba mais sobre projetos de reforma">
+          <a class="project-card" href="#contato" aria-label="Saiba mais sobre projetos residenciais com piscina">
             <img
-              src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=85"
-              alt="Interior renovado com design contemporâneo"
+              src="assets/casa-piscina.png"
+              alt="Casa térrea com piscina, pedra natural e jardim iluminado"
               loading="lazy"
             >
             <span class="project-card__caption">
-              <span class="project-card__category">Reformas</span>
+              <span class="project-card__category">Casas</span>
               <span class="project-card__hint">Passe para explorar</span>
             </span>
             <span class="project-card__details">
-              <strong>Reformas</strong>
-              <span>Novos começos para espaços que já fazem parte da sua história.</span>
+              <strong>Casas</strong>
+              <span>Fachadas e áreas externas pensadas para morar e receber bem.</span>
               <span class="project-card__link">Saiba mais <span aria-hidden="true">↗</span></span>
             </span>
           </a>
@@ -260,14 +276,14 @@
       <section class="engineer" id="engenheira" aria-labelledby="engineer-title" data-header-theme="light">
         <div class="engineer__portrait">
           <img
-            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1100&q=85"
-            alt="Retrato profissional de uma engenheira"
+            src="assets/gabriela-perfil.png"
+            alt="Retrato de Gabriela Augusta, arquiteta, sorrindo em seu escritório"
             loading="lazy"
           >
         </div>
         <div class="engineer__content">
           <p class="eyebrow">Quem lidera</p>
-          <h2 id="engineer-title">Engenharia com<br><em>olhar humano.</em></h2>
+          <h2 id="engineer-title">Arquitetura com<br><em>olhar humano.</em></h2>
           <p class="engineer__subtitle">Uma parceria próxima, da primeira ideia à entrega.</p>
           <p class="engineer__description">
             Cada projeto começa ouvindo quem vai viver aquele espaço. Com atenção
@@ -294,8 +310,8 @@
 
       <section class="intro section" id="sobre">
         <div class="section__heading">
-          <p class="eyebrow eyebrow--dark">Bem-vindo à Nexo</p>
-          <h2>Engenharia que aproxima<br>tecnologia e <em>bem-estar.</em></h2>
+          <p class="eyebrow eyebrow--dark">Bem-vindo ao escritório</p>
+          <h2>Arquitetura que aproxima<br>tecnologia e <em>bem-estar.</em></h2>
         </div>
         <div class="intro__copy">
           <p>
@@ -341,7 +357,7 @@
       </section>
 
       <section class="project" id="projeto-destaque" data-header-theme="light">
-        <div class="project__image" role="img" aria-label="Sala contemporânea com iluminação integrada"></div>
+        <div class="project__image" role="img" aria-label="Sala de jantar gourmet com mesa em madeira, painel de TV e vista para a varanda"></div>
         <div class="project__content">
           <p class="eyebrow">Projeto em destaque</p>
           <h2>Conforto em cada detalhe.</h2>
@@ -358,15 +374,15 @@
           <p class="eyebrow">Seu próximo projeto começa aqui</p>
           <h2>Vamos construir<br><em>algo inteligente?</em></h2>
         </div>
-        <a class="button button--gold" href="mailto:contato@nexoengenharia.com.br">
-          Fale com a Nexo <span aria-hidden="true">↗</span>
+        <a class="button button--gold" href="https://www.instagram.com/gabrielaaugustaarquitetura/">
+          Fale com a Gabriela <span aria-hidden="true">↗</span>
         </a>
         <div class="footer__bottom">
-          <a class="brand brand--footer" href="#inicio" aria-label="Nexo Engenharia — voltar ao início">
-            <span class="brand__mark" aria-hidden="true">N</span>
-            <span class="brand__name">NEXO<small>ENGENHARIA</small></span>
+          <a class="brand brand--footer" href="#inicio" aria-label="Gabriela Augusta Arquitetura — voltar ao início">
+            <span class="brand__mark" aria-hidden="true">G</span>
+            <span class="brand__name">GABRIELA<small>AUGUSTA ARQUITETURA</small></span>
           </a>
-          <span>Nexo Engenharia e conteúdos aqui apresentados não são reais. Site dedicado à portfólio.</span>
+          <span>Gabriela Augusta Arquitetura — portfólio.</span>
           <a href="#inicio">Voltar ao topo ↑</a>
         </div>
       </footer>

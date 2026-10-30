@@ -271,3 +271,56 @@ window.addEventListener(
 );
 
 updateHeroParallax();
+
+function setupHeroVideo() {
+  const video = document.querySelector(".hero__video");
+
+  if (!video) {
+    return;
+  }
+
+  // Celular em pé usa a versão vertical; telas largas usam a horizontal.
+  const portraitQuery = window.matchMedia("(orientation: portrait)");
+  let currentSource = "";
+
+  const chooseSource = () => {
+    const isPortrait = portraitQuery.matches;
+    const source = isPortrait ? video.dataset.srcPortrait : video.dataset.srcLandscape;
+
+    if (source === currentSource) {
+      return;
+    }
+
+    currentSource = source;
+    video.poster = isPortrait ? video.dataset.posterPortrait : "assets/hero-poster.jpg";
+    video.src = source;
+
+    if (!prefersReducedMotion) {
+      video.play().catch(() => {});
+    }
+  };
+
+  chooseSource();
+  portraitQuery.addEventListener("change", chooseSource);
+
+  if (prefersReducedMotion) {
+    video.pause();
+    video.removeAttribute("autoplay");
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    return;
+  }
+
+  // Pausa o vídeo quando o hero sai da tela para poupar bateria e processamento.
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }).observe(video);
+}
+
+setupHeroVideo();

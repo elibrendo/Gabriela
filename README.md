@@ -1,6 +1,6 @@
 # Exemplo ARQ
 
-Protótipo de site para engenharia residencial e casas inteligentes.
+Protótipo de site para arquitetura residencial e casas inteligentes.
 
 ## Executar
 
