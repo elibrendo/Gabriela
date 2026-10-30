@@ -16,6 +16,8 @@
 }
 
 html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   scroll-behavior: smooth;
 }
 
@@ -329,6 +331,7 @@ a {
   color: #25231f;
   background: #f7f6f2;
   font-size: 17px;
+  line-height: 1;
   transition: transform .25s ease;
 }
 
@@ -1456,8 +1459,18 @@ body.has-reveal-animations h2[data-reveal].is-revealed em {
     font-size: clamp(34px, 8.5vw, 44px);
   }
 
+  /* No celular, a foto fica em cima e o painel logo abaixo, sem cobrir a cena. */
   .smart-home__room {
-    min-height: 610px;
+    --room-photo-height: calc((100vw - 28px) * .82);
+    min-height: 0;
+  }
+
+  .smart-home__photo,
+  .smart-home__ambience,
+  .smart-home__ceiling-light,
+  .smart-home__room::after {
+    bottom: auto;
+    height: var(--room-photo-height);
   }
 
   .smart-home__scene-label {
@@ -1467,10 +1480,16 @@ body.has-reveal-animations h2[data-reveal].is-revealed em {
   }
 
   .smart-panel {
-    right: 12px;
-    bottom: 12px;
-    width: calc(100% - 24px);
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: var(--room-photo-height);
     padding: 18px;
+    border-width: 1px 0 0;
+    border-radius: 0;
+    background: rgba(250, 249, 246, .96);
+    box-shadow: none;
   }
 
   .smart-home__note {
