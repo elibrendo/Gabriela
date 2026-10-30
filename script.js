@@ -287,6 +287,24 @@ function setupHeroVideo() {
   video.setAttribute("playsinline", "");
   video.setAttribute("webkit-playsinline", "");
 
+  const playButton = document.querySelector(".hero__play");
+
+  const showPlayButton = (visible) => {
+    if (playButton) {
+      playButton.hidden = !visible;
+    }
+  };
+
+  // iOS só aceita touchend/click como gesto do usuário (touchstart e scroll não valem).
+  const retryOnGesture = () => {
+    const retry = () => {
+      video.play().catch(() => {});
+    };
+    ["touchend", "click"].forEach((type) =>
+      window.addEventListener(type, retry, { once: true, passive: true }),
+    );
+  };
+
   const tryPlay = () => {
     if (prefersReducedMotion) {
       return;
@@ -295,15 +313,21 @@ function setupHeroVideo() {
     const attempt = video.play();
 
     if (attempt && typeof attempt.catch === "function") {
-      // Bloqueado (ex.: modo de pouca energia): tenta de novo no primeiro toque.
+      // Bloqueado (ex.: modo de pouca energia): mostra o botão e tenta no próximo toque.
       attempt.catch(() => {
-        const retry = () => video.play().catch(() => {});
-        ["touchstart", "pointerdown", "click", "scroll"].forEach((type) =>
-          window.addEventListener(type, retry, { once: true, passive: true }),
-        );
+        showPlayButton(true);
+        retryOnGesture();
       });
     }
   };
+
+  video.addEventListener("playing", () => showPlayButton(false));
+
+  if (playButton) {
+    playButton.addEventListener("click", () => {
+      video.play().catch(() => {});
+    });
+  }
 
   // Celular em pé usa a versão vertical; telas largas usam a horizontal.
   const portraitQuery = window.matchMedia("(orientation: portrait)");
@@ -337,6 +361,7 @@ function setupHeroVideo() {
   if (prefersReducedMotion) {
     video.pause();
     video.removeAttribute("autoplay");
+    showPlayButton(true);
     return;
   }
 

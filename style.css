@@ -1461,7 +1461,7 @@ body.has-reveal-animations h2[data-reveal].is-revealed em {
 
   /* No celular, a foto fica em cima e o painel logo abaixo, sem cobrir a cena. */
   .smart-home__room {
-    --room-photo-height: calc((100vw - 28px) * .82);
+    --room-photo-height: calc(100vw - 28px); /* a foto é quadrada: aparece inteira */
     min-height: 0;
   }
 
@@ -1485,11 +1485,53 @@ body.has-reveal-animations h2[data-reveal].is-revealed em {
     bottom: auto;
     width: 100%;
     margin-top: var(--room-photo-height);
-    padding: 18px;
+    padding: 14px 16px 16px;
     border-width: 1px 0 0;
     border-radius: 0;
     background: rgba(250, 249, 246, .96);
     box-shadow: none;
+  }
+
+  .smart-panel__header {
+    padding-bottom: 10px;
+  }
+
+  .smart-panel__header h3 {
+    font-size: 17px;
+  }
+
+  .smart-panel__controls {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .smart-control {
+    grid-template-columns: 30px 1fr;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .smart-control__icon {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .smart-control__switch {
+    display: none;
+  }
+
+  .smart-panel__brightness {
+    padding-top: 10px;
+  }
+
+  .smart-panel__brightness > span {
+    margin-bottom: 6px;
+  }
+
+  .smart-panel__status {
+    margin-top: 8px;
   }
 
   .smart-home__note {
@@ -1585,4 +1627,27 @@ body.has-reveal-animations h2[data-reveal].is-revealed em {
   .hero__image {
     transform: scale(1.16);
   }
+}
+
+.hero__play {
+  position: absolute;
+  z-index: 3;
+  right: 20px;
+  bottom: 96px;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .4);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(25, 25, 23, .6);
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.hero__play[hidden] {
+  display: none;
 }
