@@ -279,6 +279,32 @@ function setupHeroVideo() {
     return;
   }
 
+  // O Safari do iPhone só toca sozinho se `muted` estiver ativo como propriedade
+  // (não basta o atributo) e se o vídeo for inline.
+  video.muted = true;
+  video.defaultMuted = true;
+  video.setAttribute("muted", "");
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+
+  const tryPlay = () => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const attempt = video.play();
+
+    if (attempt && typeof attempt.catch === "function") {
+      // Bloqueado (ex.: modo de pouca energia): tenta de novo no primeiro toque.
+      attempt.catch(() => {
+        const retry = () => video.play().catch(() => {});
+        ["touchstart", "pointerdown", "click", "scroll"].forEach((type) =>
+          window.addEventListener(type, retry, { once: true, passive: true }),
+        );
+      });
+    }
+  };
+
   // Celular em pé usa a versão vertical; telas largas usam a horizontal.
   const portraitQuery = window.matchMedia("(orientation: portrait)");
   let currentSource = "";
@@ -294,14 +320,19 @@ function setupHeroVideo() {
     currentSource = source;
     video.poster = isPortrait ? video.dataset.posterPortrait : "assets/hero-poster.jpg";
     video.src = source;
-
-    if (!prefersReducedMotion) {
-      video.play().catch(() => {});
-    }
+    video.load();
   };
 
+  video.addEventListener("loadeddata", tryPlay);
+  video.addEventListener("canplay", tryPlay);
+
   chooseSource();
-  portraitQuery.addEventListener("change", chooseSource);
+
+  if (typeof portraitQuery.addEventListener === "function") {
+    portraitQuery.addEventListener("change", chooseSource);
+  } else {
+    portraitQuery.addListener(chooseSource); // Safari < 14
+  }
 
   if (prefersReducedMotion) {
     video.pause();
@@ -316,7 +347,7 @@ function setupHeroVideo() {
   // Pausa o vídeo quando o hero sai da tela para poupar bateria e processamento.
   new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting) {
-      video.play().catch(() => {});
+      tryPlay();
     } else {
       video.pause();
     }
