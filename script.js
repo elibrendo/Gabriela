@@ -8,6 +8,8 @@ let parallaxFrameRequested = false;
 
 const titleLines = document.querySelectorAll(".hero__title-line");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// Celulares/tablets: sem parallax no hero (o vídeo no iOS só atualiza ao rolar quando está dentro de um elemento com transform).
+const isTouchDevice = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)").matches;
 
 function setupCounters() {
   const counters = document.querySelectorAll("[data-counter]");
@@ -248,7 +250,7 @@ function updateHeroParallax() {
     );
   }
 
-  if (!hero || !heroImage || prefersReducedMotion) {
+  if (!hero || !heroImage || prefersReducedMotion || isTouchDevice) {
     return;
   }
 

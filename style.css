@@ -1651,3 +1651,12 @@ body.has-reveal-animations h2[data-reveal].is-revealed em {
 .hero__play[hidden] {
   display: none;
 }
+
+/* Celulares/tablets: vídeo fixo, sem parallax nem zoom (evita travar a reprodução no Safari do iPhone). */
+@media (max-width: 760px), (hover: none) and (pointer: coarse) {
+  .hero__image {
+    inset: 0;
+    transform: none;
+    will-change: auto;
+  }
+}
